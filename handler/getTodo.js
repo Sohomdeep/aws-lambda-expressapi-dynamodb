@@ -6,7 +6,7 @@ const dynamoDb = new AWS.DynamoDB.DocumentClient();
 module.exports.getTodo = (event, context, callback) => {
     const params = {
         TableName: TODO_TABLE,
-        key: {
+        Key: {
             id: event.pathParameters.id
         }
     }
@@ -20,7 +20,7 @@ module.exports.getTodo = (event, context, callback) => {
         //response
         const response = data.Item ? {
             statusCode: 200,
-            body: JSON.stringify(data.Items)
+            body: JSON.stringify(data.Item)
         } : {
             statusCode: 404,
             body: JSON.stringify({message: "Todo not found"})

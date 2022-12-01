@@ -6,7 +6,7 @@ const dynamoDb = new AWS.DynamoDB.DocumentClient();
 module.exports.deleteTodo = (event, context, callback) => {
     const params = {
         TableName: TODO_TABLE,
-        key: {
+        Key: {
             id: event.pathParameters.id
         }
     }
