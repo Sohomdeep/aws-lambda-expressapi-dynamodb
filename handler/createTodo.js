@@ -4,7 +4,7 @@ const TODO_TABLE = process.env.TODO_TABLE;
 const dynamoDb = new AWS.DynamoDB.DocumentClient();
 const uuid = require("uuid");
 
-module.exports.createTodo = (event, context) => {
+module.exports.createTodo = (event, context, callback) => {
     const timestamp = new Date().getTime();
     const data = JSON.parse(event.body);
 
