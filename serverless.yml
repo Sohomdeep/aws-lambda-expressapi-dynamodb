@@ -39,6 +39,14 @@ functions:
           method: get
           cors: true
 
+  get:
+    handler: handler/getTodo.getTodo
+    events:
+      - http:
+          path: todo/{id}
+          method: get
+          cors: true
+
 
 resources:
   Resources:
@@ -46,10 +54,10 @@ resources:
       Type: AWS::DynamoDB::Table
       Properties:
         AttributeDefinitions:
-          - AttributeName: userId
+          - AttributeName: id
             AttributeType: S
         KeySchema:
-          - AttributeName: userId
+          - AttributeName: id
             KeyType: HASH
         BillingMode: PAY_PER_REQUEST
         TableName: ${self:custom.tableName}
