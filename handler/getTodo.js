@@ -8,7 +8,7 @@ module.exports.listTodos = (event, context, callback) => {
     const params = {
         TableName: TODO_TABLE,
         key: {
-            id: event.pathParameters.id
+            userId: event.pathParameters.userId
         }
     }
 
